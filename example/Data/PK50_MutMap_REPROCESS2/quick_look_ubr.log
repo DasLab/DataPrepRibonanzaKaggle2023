@@ -1,0 +1,100 @@
+Reading and processing data...
+Reading from ... ./RTB000_WuTwist50_DMS
+Reading from ... ./RTB001_WuTwist50_MaraNomod
+Reading from ... ./RTB002_Twist50_ErrorP_DMS
+Reading from ... ./RTB003_Twist50_ErrorP_MaraNomod
+Reading from ... ./RTB006_WuTwist50_2A3
+Reading from ... ./RTB007_WuTwist50_SSIINomod
+Reading from ... ./RTB008_Twist50_ErrorP_2A3
+Reading from ... ./RTB009_Twist50_ErrorP_SSIINomod
+Reading from ... ./RTB012_Twist50_DMS
+Reading from ... ./RTB013_Twist50_MaraNomod
+Reading from ... ./RTB016_CArray50_DMS
+Reading from ... ./RTB017_CArray50_MaraNomod
+Reading from ... ./RTB020_Twist50_2A3
+Reading from ... ./RTB021_Twist50_SSIINomod
+Reading from ... ./RTB024_CArray50_2A3
+Reading from ... ./RTB025_CArray50_SSIINomod
+Reading raw counts from ... ./RTB000_WuTwist50_DMS
+Reading raw counts from ... ./RTB001_WuTwist50_MaraNomod
+Reading raw counts from ... ./RTB002_Twist50_ErrorP_DMS
+Reading raw counts from ... ./RTB003_Twist50_ErrorP_MaraNomod
+Reading raw counts from ... ./RTB006_WuTwist50_2A3
+Reading raw counts from ... ./RTB007_WuTwist50_SSIINomod
+Reading raw counts from ... ./RTB008_Twist50_ErrorP_2A3
+Reading raw counts from ... ./RTB009_Twist50_ErrorP_SSIINomod
+Reading raw counts from ... ./RTB012_Twist50_DMS
+Reading raw counts from ... ./RTB013_Twist50_MaraNomod
+Reading raw counts from ... ./RTB016_CArray50_DMS
+Reading raw counts from ... ./RTB017_CArray50_MaraNomod
+Reading raw counts from ... ./RTB020_Twist50_2A3
+Reading raw counts from ... ./RTB021_Twist50_SSIINomod
+Reading raw counts from ... ./RTB024_CArray50_2A3
+Reading raw counts from ... ./RTB025_CArray50_SSIINomod
+Condition 1 will be RTB000_WuTwist50_DMS minus RTB001_WuTwist50_MaraNomod.
+Condition 2 will be RTB002_Twist50_ErrorP_DMS minus RTB003_Twist50_ErrorP_MaraNomod.
+Condition 3 will be RTB006_WuTwist50_2A3 minus RTB007_WuTwist50_SSIINomod.
+Condition 4 will be RTB008_Twist50_ErrorP_2A3 minus RTB009_Twist50_ErrorP_SSIINomod.
+Condition 5 will be RTB012_Twist50_DMS minus RTB013_Twist50_MaraNomod.
+Condition 6 will be RTB016_CArray50_DMS minus RTB017_CArray50_MaraNomod.
+Condition 7 will be RTB020_Twist50_2A3 minus RTB021_Twist50_SSIINomod.
+Condition 8 will be RTB024_CArray50_2A3 minus RTB025_CArray50_SSIINomod.
+Reading sequence FASTA file...: pseudoknot50_puzzle_11318423.tsv.RNA_sequences.fa.
+Read in 2729 sequences from pseudoknot50_puzzle_11318423.tsv.RNA_sequences.fa.
+Setting BLANK_OUT5 to be 26 nucleotides; if this does not look right, re-run with explicit specification of BLANK_OUT5
+Setting BLANK_OUT3 to be 20 nucleotides; if this does not look right, re-run with explicit specification of BLANK_OUT3
+Compiling reactivity...
+Elapsed time is 1.797571 seconds.
+Spreading out deletions...
+Doing 1000 out of 2729...
+Doing 2000 out of 2729...
+Elapsed time is 5.440531 seconds.
+For normalization, using 2514 sequences that pass a total coverage cutoff of 10000 
+Normalizing reactivity profiles for 1 RTB000_WuTwist50_DMS with value 0.026502.
+Normalizing reactivity profiles for 2 RTB002_Twist50_ErrorP_DMS with value 0.025765.
+Normalizing reactivity profiles for 3 RTB006_WuTwist50_2A3 with value 0.041701.
+Normalizing reactivity profiles for 4 RTB008_Twist50_ErrorP_2A3 with value 0.052262.
+Normalizing reactivity profiles for 5 RTB012_Twist50_DMS with value 0.032636.
+Normalizing reactivity profiles for 6 RTB016_CArray50_DMS with value 0.023433.
+Normalizing reactivity profiles for 7 RTB020_Twist50_2A3 with value 0.041390.
+Normalizing reactivity profiles for 8 RTB024_CArray50_2A3 with value 0.041406.
+
+Creating figures (provide no_figures in options to skip)...
+Mean signal-to-noise (RTB000_WuTwist50_DMS) 9.500359
+Mean signal-to-noise (RTB002_Twist50_ErrorP_DMS) 5.558378
+Mean signal-to-noise (RTB006_WuTwist50_2A3) 11.565961
+Mean signal-to-noise (RTB008_Twist50_ErrorP_2A3) 8.158821
+Mean signal-to-noise (RTB012_Twist50_DMS) 6.630551
+Mean signal-to-noise (RTB016_CArray50_DMS) 4.791745
+Mean signal-to-noise (RTB020_Twist50_2A3) 7.115514
+Mean signal-to-noise (RTB024_CArray50_2A3) 5.778044
+
+
+strictmuts: 0.01076 ins: 0.00044 del: 0.00036 strictmuts+dels: 0.01112 rf-count: 0.01209  RTB000_WuTwist50_DMS 
+strictmuts: 0.00181 ins: 0.00027 del: 0.00022 strictmuts+dels: 0.00203 rf-count: 0.00201  RTB001_WuTwist50_MaraNomod 
+strictmuts: 0.01321 ins: 0.00037 del: 0.00044 strictmuts+dels: 0.01365 rf-count: 0.01452  RTB002_Twist50_ErrorP_DMS 
+strictmuts: 0.00482 ins: 0.00027 del: 0.00030 strictmuts+dels: 0.00511 rf-count: 0.00496  RTB003_Twist50_ErrorP_MaraNomod 
+strictmuts: 0.01237 ins: 0.00341 del: 0.00668 strictmuts+dels: 0.01906 rf-count: 0.01757  RTB006_WuTwist50_2A3 
+strictmuts: 0.00313 ins: 0.00151 del: 0.00046 strictmuts+dels: 0.00360 rf-count: 0.00360  RTB007_WuTwist50_SSIINomod 
+strictmuts: 0.01645 ins: 0.00371 del: 0.00826 strictmuts+dels: 0.02472 rf-count: 0.02296  RTB008_Twist50_ErrorP_2A3 
+strictmuts: 0.00564 ins: 0.00143 del: 0.00054 strictmuts+dels: 0.00618 rf-count: 0.00619  RTB009_Twist50_ErrorP_SSIINomod 
+strictmuts: 0.01258 ins: 0.00049 del: 0.00038 strictmuts+dels: 0.01295 rf-count: 0.01427  RTB012_Twist50_DMS 
+strictmuts: 0.00167 ins: 0.00027 del: 0.00021 strictmuts+dels: 0.00188 rf-count: 0.00184  RTB013_Twist50_MaraNomod 
+strictmuts: 0.01113 ins: 0.00138 del: 0.00342 strictmuts+dels: 0.01455 rf-count: 0.01562  RTB016_CArray50_DMS 
+strictmuts: 0.00327 ins: 0.00117 del: 0.00285 strictmuts+dels: 0.00611 rf-count: 0.00619  RTB017_CArray50_MaraNomod 
+strictmuts: 0.01271 ins: 0.00379 del: 0.00625 strictmuts+dels: 0.01896 rf-count: 0.01749  RTB020_Twist50_2A3 
+strictmuts: 0.00359 ins: 0.00180 del: 0.00050 strictmuts+dels: 0.00409 rf-count: 0.00406  RTB021_Twist50_SSIINomod 
+strictmuts: 0.01396 ins: 0.00441 del: 0.00854 strictmuts+dels: 0.02250 rf-count: 0.02105  RTB024_CArray50_2A3 
+strictmuts: 0.00456 ins: 0.00256 del: 0.00301 strictmuts+dels: 0.00757 rf-count: 0.00760  RTB025_CArray50_SSIINomod 
+Elapsed time is 8.217599 seconds.
+
+Printing figures (provide no_print in options to skip)...
+Creating: .//Figures/Figure1_fraction_reacted_first_500_designs.png
+Creating: .//Figures/Figure2_S_N_vs._reads.png
+Creating: .//Figures/Figure3_Mean_S_N.png
+Creating: .//Figures/Figure4_first_designs_with_good_S_N_up_to_500.png
+Creating: .//Figures/Figure5_first_designs_with_good_S_N_up_to_10000.png
+Creating: .//Figures/Figure6_Top_S_N_design.png
+Creating: .//Figures/Figure7_Mutation_type_analysis_table_summary.png
+Creating: .//Figures/Figure8_Mutation_type_analysis_position-wise.png
+Elapsed time is 15.216765 seconds.

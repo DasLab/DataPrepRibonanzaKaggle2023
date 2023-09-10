@@ -1,0 +1,82 @@
+Reading and processing data...
+Reading from ... ./RTB004_Twist90_ErrorP_DMS
+Reading from ... ./RTB005_Twist90_ErrorP_MaraNomod
+Reading from ... ./RTB010_Twist90_ErrorP_2A3
+Reading from ... ./RTB011_Twist90_ErrorP_SSIINomod
+Reading from ... ./RTB014_Twist90_DMS
+Reading from ... ./RTB015_Twist90_MaraNomod
+Reading from ... ./RTB018_CArray90_DMS
+Reading from ... ./RTB019_CArray90_MaraNomod
+Reading from ... ./RTB022_Twist90_2A3
+Reading from ... ./RTB023_Twist90_SSIINomod
+Reading from ... ./RTB026_CArray90_2A3
+Reading from ... ./RTB027_CArray90_SSIINomod
+Reading raw counts from ... ./RTB004_Twist90_ErrorP_DMS
+Reading raw counts from ... ./RTB005_Twist90_ErrorP_MaraNomod
+Reading raw counts from ... ./RTB010_Twist90_ErrorP_2A3
+Reading raw counts from ... ./RTB011_Twist90_ErrorP_SSIINomod
+Reading raw counts from ... ./RTB014_Twist90_DMS
+Reading raw counts from ... ./RTB015_Twist90_MaraNomod
+Reading raw counts from ... ./RTB018_CArray90_DMS
+Reading raw counts from ... ./RTB019_CArray90_MaraNomod
+Reading raw counts from ... ./RTB022_Twist90_2A3
+Reading raw counts from ... ./RTB023_Twist90_SSIINomod
+Reading raw counts from ... ./RTB026_CArray90_2A3
+Reading raw counts from ... ./RTB027_CArray90_SSIINomod
+Condition 1 will be RTB004_Twist90_ErrorP_DMS minus RTB005_Twist90_ErrorP_MaraNomod.
+Condition 2 will be RTB010_Twist90_ErrorP_2A3 minus RTB011_Twist90_ErrorP_SSIINomod.
+Condition 3 will be RTB014_Twist90_DMS minus RTB015_Twist90_MaraNomod.
+Condition 4 will be RTB018_CArray90_DMS minus RTB019_CArray90_MaraNomod.
+Condition 5 will be RTB022_Twist90_2A3 minus RTB023_Twist90_SSIINomod.
+Condition 6 will be RTB026_CArray90_2A3 minus RTB027_CArray90_SSIINomod.
+Reading sequence FASTA file...: pseudoknot90_puzzle_11387276.tsv.RNA_sequences.fa.
+Read in 2173 sequences from pseudoknot90_puzzle_11387276.tsv.RNA_sequences.fa.
+Setting BLANK_OUT5 to be 26 nucleotides; if this does not look right, re-run with explicit specification of BLANK_OUT5
+Setting BLANK_OUT3 to be 20 nucleotides; if this does not look right, re-run with explicit specification of BLANK_OUT3
+Compiling reactivity...
+Elapsed time is 1.216275 seconds.
+Spreading out deletions...
+Doing 1000 out of 2173...
+Doing 2000 out of 2173...
+Elapsed time is 4.307139 seconds.
+For normalization, using 1833 sequences that pass a total coverage cutoff of 10000 
+Normalizing reactivity profiles for 1 RTB004_Twist90_ErrorP_DMS with value 0.027789.
+Normalizing reactivity profiles for 2 RTB010_Twist90_ErrorP_2A3 with value 0.046892.
+Normalizing reactivity profiles for 3 RTB014_Twist90_DMS with value 0.028362.
+Normalizing reactivity profiles for 4 RTB018_CArray90_DMS with value 0.024883.
+Normalizing reactivity profiles for 5 RTB022_Twist90_2A3 with value 0.044364.
+Normalizing reactivity profiles for 6 RTB026_CArray90_2A3 with value 0.037916.
+
+Creating figures (provide no_figures in options to skip)...
+Mean signal-to-noise (RTB004_Twist90_ErrorP_DMS) 7.396204
+Mean signal-to-noise (RTB010_Twist90_ErrorP_2A3) 9.423334
+Mean signal-to-noise (RTB014_Twist90_DMS) 6.955416
+Mean signal-to-noise (RTB018_CArray90_DMS) 4.813345
+Mean signal-to-noise (RTB022_Twist90_2A3) 8.907939
+Mean signal-to-noise (RTB026_CArray90_2A3) 6.042228
+
+
+strictmuts: 0.01315 ins: 0.00037 del: 0.00042 strictmuts+dels: 0.01356 rf-count: 0.01542  RTB004_Twist90_ErrorP_DMS 
+strictmuts: 0.00369 ins: 0.00023 del: 0.00030 strictmuts+dels: 0.00400 rf-count: 0.00408  RTB005_Twist90_ErrorP_MaraNomod 
+strictmuts: 0.01512 ins: 0.00335 del: 0.00835 strictmuts+dels: 0.02347 rf-count: 0.02183  RTB010_Twist90_ErrorP_2A3 
+strictmuts: 0.00497 ins: 0.00127 del: 0.00051 strictmuts+dels: 0.00548 rf-count: 0.00567  RTB011_Twist90_ErrorP_SSIINomod 
+strictmuts: 0.01124 ins: 0.00037 del: 0.00035 strictmuts+dels: 0.01160 rf-count: 0.01323  RTB014_Twist90_DMS 
+strictmuts: 0.00156 ins: 0.00027 del: 0.00023 strictmuts+dels: 0.00179 rf-count: 0.00183  RTB015_Twist90_MaraNomod 
+strictmuts: 0.01119 ins: 0.00048 del: 0.00285 strictmuts+dels: 0.01404 rf-count: 0.01565  RTB018_CArray90_DMS 
+strictmuts: 0.00224 ins: 0.00037 del: 0.00298 strictmuts+dels: 0.00522 rf-count: 0.00527  RTB019_CArray90_MaraNomod 
+strictmuts: 0.01328 ins: 0.00343 del: 0.00743 strictmuts+dels: 0.02071 rf-count: 0.01890  RTB022_Twist90_2A3 
+strictmuts: 0.00336 ins: 0.00162 del: 0.00047 strictmuts+dels: 0.00383 rf-count: 0.00389  RTB023_Twist90_SSIINomod 
+strictmuts: 0.01287 ins: 0.00312 del: 0.00916 strictmuts+dels: 0.02202 rf-count: 0.02032  RTB026_CArray90_2A3 
+strictmuts: 0.00403 ins: 0.00159 del: 0.00354 strictmuts+dels: 0.00758 rf-count: 0.00761  RTB027_CArray90_SSIINomod 
+Elapsed time is 5.403683 seconds.
+
+Printing figures (provide no_print in options to skip)...
+Creating: .//Figures/Figure1_fraction_reacted_first_500_designs.png
+Creating: .//Figures/Figure2_S_N_vs._reads.png
+Creating: .//Figures/Figure3_Mean_S_N.png
+Creating: .//Figures/Figure4_first_designs_with_good_S_N_up_to_500.png
+Creating: .//Figures/Figure5_first_designs_with_good_S_N_up_to_10000.png
+Creating: .//Figures/Figure6_Top_S_N_design.png
+Creating: .//Figures/Figure7_Mutation_type_analysis_table_summary.png
+Creating: .//Figures/Figure8_Mutation_type_analysis_position-wise.png
+Elapsed time is 10.737854 seconds.
