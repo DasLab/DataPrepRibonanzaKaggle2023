@@ -23,10 +23,12 @@ if istable(s)
     %assert(all(strjoin(d_id)==strjoin(s_id)))
 end
 
-if ischar(idx)
+if exist('idx','var') & ischar(idx)
     assert(exist('d_usage','var'));
     idx = find(strcmp(d_usage,idx));
     length(idx);
+else
+    idx = [1:size(s,1)];
 end
 
 s_score = s(idx,:);
