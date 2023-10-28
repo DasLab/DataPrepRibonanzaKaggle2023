@@ -1,5 +1,5 @@
 function d = output_kaggle_csv(outfile, d, output_idx, condition, experiment_type, dataset_name);
-% d = output_kaggle_csv(outfile, d, output_idx, cidx, experiment_type, dataset_name);
+% d = output_kaggle_csv(outfile, d, output_idx, condition, experiment_type, dataset_name);
 %
 % Output .csv file for train/test Kaggle.
 %
@@ -52,14 +52,6 @@ if ~isstruct(d)
     end
 end
 
-% Get reads (wasn't defined in some of the earlier UBR processing runs)
-if isfield( d, 'reads' );
-    reads = d.reads;
-else
-    for i = 1:length(d.shape_nomod_idx);
-        reads(:,i) = sum(d.coverage(:,d.shape_nomod_idx{i}),2);
-    end;
-end
 
 if isempty(output_idx)
     output_idx = [1:size(d.r_norm,1)]; % all data, by default
@@ -70,6 +62,21 @@ if isempty(cidx)
     fprintf(1,'\nCould not find condition %s in conditions! Here are the possibilities:\n',condition);
     celldisp(d.conditions)
     return;
+end
+
+% We intentionally do not make copies of d.r_norm and d.r_norm_err to avoid
+%  memory issues for large arrays. Ditto for sequences!
+%r_norm = d.r_norm(:,:,cidx);
+%r_norm_err = d.r_norm_err(:,:,cidx);
+
+
+% Get reads (wasn't defined in some of the earlier UBR processing runs)
+if isfield( d, 'reads' );
+    reads = d.reads(:,cidx);
+else
+    for i = 1:length(d.shape_nomod_idx);
+        reads(:,i) = sum(d.coverage(:,d.shape_nomod_idx{i}),2);
+    end;
 end
 
 for i = 1:length(d.sequences)
@@ -84,12 +91,15 @@ if isfield(d, 'BLANK_OUT3_INCL_BARCODE')
 else
     BLANK_OUT3 = d.BLANK_OUT3;
 end
+BLANK_OUT5 = d.BLANK_OUT5;
 
 % SN_filter
 signal_to_noise = d.signal_to_noise(:,cidx); 
 
-% SN_filter
-SN_filter = (d.signal_to_noise(:,cidx)>1.0 & reads > 100); 
+% SN_filter -- NOTE THAT IN FIRST KAGGLE DATA RELEASE I FORGOT TO USE c_idx
+% column!
+SN_filter = (signal_to_noise>1.0 & reads > 100); 
+
 
 fprintf( 'Number of designs passing SN_filter = %d/%d (%5.2f %%)\n',length(find(SN_filter(output_idx))),length(output_idx),100*length(find(SN_filter(output_idx)))/length(output_idx));
 
@@ -101,8 +111,8 @@ for q = 1:num_chunks
     filename_chunk = filename;
     if (num_chunks > 1); filename_chunk = strrep(filename,'.csv',sprintf('_%05d.csv',q) ); end;
     output_labels_csv(filename_chunk,chunk_idx,d.r_norm(:,:,cidx),ids,...
-        d.sequences,d.BLANK_OUT5,BLANK_OUT3,experiment_type,dataset_name,...
-        d.r_norm_err,reads(:,cidx),SN_filter,signal_to_noise);
+        d.sequences,BLANK_OUT5,BLANK_OUT3,experiment_type,dataset_name,...
+        d.r_norm_err(:,:,cidx),reads,SN_filter,signal_to_noise);
 end
 
 %%%%%%%%%%%%%%%%%
