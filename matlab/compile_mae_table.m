@@ -18,7 +18,7 @@ score = [];
 assert( length(subs) == length(sub_names) );
 for i = 1:length(subs)
     for j = 1:length(usages)
-        score(i,j) = scorefn(subs{i}(1:100:end,:),data(1:100:end,:),usages{j});
+        score(i,j) = scorefn(subs{i},data,usages{j});
         fprintf('%s: %.5f  ',usages{j}, score(i,j));
     end
     fprintf(' %s\n',sub_names{i});
