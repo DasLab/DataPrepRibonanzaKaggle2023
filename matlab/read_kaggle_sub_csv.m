@@ -11,7 +11,7 @@ function sub = read_kaggle_sub_csv( table_file, id, USE_PARQUET );
 % (C) R. Das, Stanford University, HHMI, 2023
 
 if exist( 'id', 'var') & length(id) == 1; id = [0:(id-1)]; end
-if ~exist( "USE_PARQUET", 'var') USE_PARQUET = 1; end;
+if ~exist( 'USE_PARQUET', 'var') USE_PARQUET = 1; end;
 
 if USE_PARQUET & (length(table_file)<=8 | ~strcmp(table_file(end-7:end),'.parquet'));
     if exist([table_file,'.parquet'],'file')
@@ -35,7 +35,7 @@ end
 
 tic
 fprintf('Reading table from disk...\n');
-if exist('id','var')
+if exist('id','var') & ~isempty(id)
     % Old style
     % subfile = '/tmp/tmp.csv';
     % command = sprintf('head -n %d %s > %s',Nrows+1,strrep(csv_file,' ','\ '),subfile);
@@ -57,9 +57,9 @@ if exist('id','var')
     sub = sub(idx,:);
 else
     if length(table_file)>8 & strcmp(table_file(end-7:end),'.parquet');
-        sub = readtable(table_file);
-    else
         sub = parquetread(table_file);
+    else
+        sub = readtable(table_file);
     end
 end
 toc
