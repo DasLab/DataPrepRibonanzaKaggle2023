@@ -28,8 +28,13 @@ t = get_table(t_in{1});
 
 for i = 2:length(t_in)
     t2 = get_table(t_in{i});
-    t2 = pad_out(t2, t);
-    t = pad_out(t, t2);
+    if length(t.Properties.VariableNames) > length(t2.Properties.VariableNames)
+        t2 = pad_out(t2, t);
+        t  = pad_out(t, t2);
+    else
+        t  = pad_out(t, t2);
+        t2 = pad_out(t2, t);
+    end
     t = [t;t2];
 end
 
@@ -44,7 +49,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function t2 = pad_out(t2,t1)
-
+% add columns to t2 that are missing but in t1
 for i = 1:length(t1.Properties.VariableNames)
     name = t1.Properties.VariableNames{i};
     if ~any(strcmp(t2.Properties.VariableNames,name))
@@ -55,3 +60,13 @@ for i = 1:length(t1.Properties.VariableNames)
         end
     end
 end
+
+% reorder t2 to match order of t1
+for i = 1:length(t1.Properties.VariableNames)
+    name = t1.Properties.VariableNames{i};
+    idx(i) = find(strcmp(t2.Properties.VariableNames,name));
+end
+
+idx = [idx, setdiff([1:length(t2.Properties.VariableNames)],idx)];
+t2 = t2(:,idx);
+
