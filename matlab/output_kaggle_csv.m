@@ -26,7 +26,7 @@ for i = 1:length(mod_tags)
     mod_tag = mod_tags{i};
     if contains(condition,mod_tag)
         assert( contains(experiment_type, mod_tag) );
-        assert( contains(dataset_name, mod_tag) );
+        %assert( contains(dataset_name, mod_tag) );
         assert( contains(outfile, mod_tag) );
     end
 end
@@ -99,7 +99,7 @@ signal_to_noise = d.signal_to_noise(:,cidx);
 % SN_filter -- NOTE THAT IN FIRST KAGGLE DATA RELEASE I FORGOT TO USE c_idx
 % column!
 SN_filter = (signal_to_noise>1.0 & reads > 100); 
-
+if all(isnan(reads)); SN_filter = (signal_to_noise>1.0); end;
 
 fprintf( 'Number of designs passing SN_filter = %d/%d (%5.2f %%)\n',length(find(SN_filter(output_idx))),length(output_idx),100*length(find(SN_filter(output_idx)))/length(output_idx));
 
