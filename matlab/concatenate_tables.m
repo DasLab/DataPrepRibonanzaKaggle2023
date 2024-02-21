@@ -44,29 +44,36 @@ if ~istable(t) & ischar(t);
     [dirname,basename,ext] = fileparts(t);
     dirname = strrep(dirname,[pwd(),'/'],'');
     fprintf('Reading in table: %s/%s%s...\n',dirname,basename,ext);
-    t = readtable(t); 
+    if strcmp(ext,'.parquet')
+        t = parquetread(t); 
+    else
+        t = readtable(t);
+    end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function t2 = pad_out(t2,t1)
 % add columns to t2 that are missing but in t1
-for i = 1:length(t1.Properties.VariableNames)
-    name = t1.Properties.VariableNames{i};
-    if ~any(strcmp(t2.Properties.VariableNames,name))
-        if isnumeric(t1.(name))
-            t2.(name) = repmat(NaN,height(t2),1);
-        else
-            t2.(name) = repmat({''},height(t2),1);
-        end
+names1 = t1.Properties.VariableNames;
+names2 = t2.Properties.VariableNames;
+names_new = setdiff(names1,names2);
+for i = 1:length(names_new)
+    name = names_new{i};
+    assert(~any(strcmp(names2,name)));
+    if isnumeric(t1.(name))
+        t2.(name) = repmat(NaN,height(t2),1);
+    else
+        t2.(name) = repmat({''},height(t2),1);
     end
 end
 
 % reorder t2 to match order of t1
-for i = 1:length(t1.Properties.VariableNames)
-    name = t1.Properties.VariableNames{i};
-    idx(i) = find(strcmp(t2.Properties.VariableNames,name));
+names2 = t2.Properties.VariableNames;
+for i = 1:length(names1)
+    name = names1{i};
+    reorder(i) = find(strcmp(names2,name));
 end
 
-idx = [idx, setdiff([1:length(t2.Properties.VariableNames)],idx)];
-t2 = t2(:,idx);
+reorder = [reorder, setdiff([1:length(names2)],reorder)];
+t2 = t2(:,reorder);
 

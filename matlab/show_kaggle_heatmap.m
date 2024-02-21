@@ -1,4 +1,4 @@
-function r_2A3 = show_kaggle_heatmap(table_file,fullseqlen,seqlen,design_name,best_structure,pad,subfile,just_2A3,sequences,strtags,show_windows_only);
+function r_out = show_kaggle_heatmap(table_file,fullseqlen,seqlen,design_name,best_structure,pad,subfile,just_2A3,sequences,strtags,show_windows_only);
 %% show_kaggle_heatmap(table_file,fullseqlen,seqlen,design_name,best_structure,pad,subfile,just_2A3,sequences,strtags,show_windows);
 %
 % Draw out 2D heatmap (e.g., mutate-and-map-seq) for a table drawn from a 
@@ -40,6 +40,7 @@ else
     r_DMS = reshape(t.reactivity_DMS_MaP,fullseqlen,[]);
     r_2A3 = reshape(t.reactivity_2A3_MaP,fullseqlen,[]);
 end
+r_window = [];
 % if ~isempty(best_structure);
 %     assert(length(best_structure)==seqlen);
 % end
@@ -49,25 +50,28 @@ if just_2A3 == 0
     subplot(2,1,1);
 end
 if just_2A3 <= 0
-    plot_stuff(r_DMS',seqlen,pad,best_structure,size(r_DMS,2),sequences,strtags,show_windows_only);
+    r_window = plot_stuff(r_DMS',seqlen,pad,best_structure,size(r_DMS,2),sequences,strtags,show_windows_only);
     title({['DMS ',design_name],table_file},'interpreter','none');
 end
 if just_2A3 == 0
     subplot(2,1,2);
 end
 if just_2A3 >= 0
-    plot_stuff(r_2A3',seqlen,pad,best_structure,size(r_2A3,2),sequences,strtags,show_windows_only);
+    r_window = plot_stuff(r_2A3',seqlen,pad,best_structure,size(r_2A3,2),sequences,strtags,show_windows_only);
     title({['2A3 ',design_name],table_file},'interpreter','none');
 end
+
+r_out = r_2A3;
+if ~isempty(r_window) r_out = r_window; end;
 
 colormap(1-gray(100));
 set(gcf,'color','white');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function plot_stuff(reactivity,seqlen,pad,best_structure,N,sequences,strtags,show_windows_only);
+function r_window = plot_stuff(reactivity,seqlen,pad,best_structure,N,sequences,strtags,show_windows_only);
 % plot the image; extract windows if strtags is specified.
 if ~show_windows_only
-    imagesc( reactivity );
+    imagesc( reactivity, [0,1] );
     xlabel('Position');
     for i = 1:length(best_structure)
         text(pad+i,N+0.5,best_structure(i),'horizontalalign','center','verticalalign','top','interpreter','none','clipping','off');
@@ -103,7 +107,7 @@ if show_windows_only
     imagesc( 1:tag_len_cumsum(end), [],r_window, [0 1]);
     hold on
     for q = 1:length(strtags)
-        plot(tag_len_cumsum(q)*[ 1 1] + 0.5,[0 N],'k');
+        plot(tag_len_cumsum(q)*[ 1 1] + 0.5,[0.5 N+0.5],'r');
     end
     hold off
     set(gca,'xtick',[1:tag_len_cumsum(end)],'xticklabel',strjoin(strtags,'')');

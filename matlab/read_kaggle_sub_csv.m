@@ -1,10 +1,10 @@
 function sub = read_kaggle_sub_csv( table_file, id, USE_PARQUET );
 % sub = read_kaggle_sub_csv( table_file, id );
-% sub = read_kaggle_sub_csv( csv_file, Nrows );
+% sub = read_kaggle_sub_csv( table_file, Nrows );
 %
 % Inputs:
 %  table_file   = table in CSV or .parquet format
-%  which_rows = specific rows to read in. 
+%  id = specific id's to read in from Kaggle sub.
 %  USE_PARQUET = use .parquet version of file (if not available, generate
 %                  the file for future use) [default 1]
 %
@@ -61,6 +61,9 @@ else
     else
         sub = readtable(table_file);
     end
+end
+if ~all(sub.id(2:end)-sub.id(1:end-1))
+    warning(sprintf('WARNING!! id is not monotonic! Sort the file, %s',table_file));
 end
 toc
 

@@ -7,14 +7,13 @@ Scripts and example files
 - When Positives240, Positives390, and OneMil-Round2 ('future data') are collected during competition, make sure to **update this repo** to document data prep.
 
 Initial repo prepared on Sep. 10, 2023.
+Release date: Feb. 20, 2024
 
 ## Key links
 
 [Ribonanza competition](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/overview)
 
-[Ribonanza host eval page with solution files and eval metric (visible only to host)](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/host/evaluation)
-
-The complete **kaggle2023** folder is on Rhiju Das's laptop, which is synced to [this Google Drive (to be made public at competition end)](https://drive.google.com/open?id=15dTkZoVHioacjgcGfwsYBF7xyt4qYOVc&usp=drive_fs)
+The complete **kaggle2023** folder is on Rhiju Das's laptop, which is synced to [this Google Drive (made public at competition end)](https://drive.google.com/open?id=15dTkZoVHioacjgcGfwsYBF7xyt4qYOVc&usp=drive_fs)
 as well as on Stanford's Oak long-term storage (`/oak/stanford/groups/rhiju/sherlock/scratch/rhiju/Experiments/Eterna_RYOP_Pilot2022_experiments/DataAnalysis/kaggle2023.tgz`)
 
 ## What's in here
@@ -45,7 +44,7 @@ To run the example, open MATLAB, and `addpath matlab` to get the scripts.
 Then:
 
 ```
-cd DataPrepRibonanzaKaggle2023/example`
+cd DataPrepRibonanzaKaggle2023/example
 open output_all_data_for_kaggle_example_SCRIPT.m
 ```
 

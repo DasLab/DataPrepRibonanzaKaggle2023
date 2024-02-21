@@ -17,7 +17,7 @@ function d = output_kaggle_csv(outfile, d, output_idx, condition, experiment_typ
 %          to original experimental files and analysis, e.g., RHEt1_Novoseq_PK50_Twist_multimemberclasses_train
 %
 % Output
-%  d = data structre with info read in from input workspace or input file.
+%  d = data structure with info read in from input workspace or input file.
 %
 % (C) R. Das, Stanford University & HHMI
 
@@ -122,7 +122,7 @@ fasta = fastaread(workspace_file);
 d = struct();
 %% Get sequence and id 
 sequences = {}; 
-for n = 1:length(fasta); sequences{n} = strrep(fasta(n).Sequence,'T','U'); end
+for n = 1:length(fasta); sequences{n} = strrep(strrep(upper(fasta(n).Sequence),'T','U')); end
 d.sequences = sequences;
 d.conditions = {'2A3_MaP','DMS_MaP'};
 Nres = length(d.sequences{1});
