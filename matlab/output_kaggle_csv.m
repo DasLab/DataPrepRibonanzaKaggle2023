@@ -120,9 +120,9 @@ function  d = fill_future_data_from_fasta_file(workspace_file)
 
 fasta = fastaread(workspace_file);
 d = struct();
-%% Get sequence and id 
+% Get sequence and id 
 sequences = {}; 
-for n = 1:length(fasta); sequences{n} = strrep(strrep(upper(fasta(n).Sequence),'T','U')); end
+for n = 1:length(fasta); sequences{n} = strrep(upper(fasta(n).Sequence),'T','U'); end
 d.sequences = sequences;
 d.conditions = {'2A3_MaP','DMS_MaP'};
 Nres = length(d.sequences{1});

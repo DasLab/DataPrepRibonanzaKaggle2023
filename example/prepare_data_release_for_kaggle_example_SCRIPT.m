@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Data v2
+%% Data v0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 data_example_version = 'v0.0.0';  % Creating an example data directory
 outdir = sprintf('~/Desktop/%s',data_example_version); % to avoid Google Drive issues.
